@@ -81,3 +81,4 @@ if [ $UPDATE = true ]; then
 fi
 
 # TODO: Interactive uninstall script.
+# TODO: Allow installation of additional python packages
