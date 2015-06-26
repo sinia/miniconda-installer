@@ -82,3 +82,5 @@ fi
 
 # TODO: Interactive uninstall script.
 # TODO: Allow installation of additional python packages
+# TODO: allow install into preexisting dir without deleting it
+# TODO: allow define install path
