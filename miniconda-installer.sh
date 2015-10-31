@@ -4,8 +4,9 @@
 set -e
 
 ### Set main variables. You can change this per your preferences
-FILE=Miniconda-3.10.1-Linux-x86_64.sh
-MD5_EXP=8eedd8fc03262c9529b47e6d6cdbd5d4
+FILE=Miniconda-3.16.0-Linux-x86_64.sh
+
+MD5_EXP=87620e37caf523325ae67889656bc987
 # Path to which Miniconda will be installed
 PREFIX=${HOME}/miniconda
 
