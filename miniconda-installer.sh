@@ -4,9 +4,8 @@
 set -e
 
 ### Set main variables. You can change this per your preferences
-FILE=Miniconda-3.16.0-Linux-x86_64.sh
+FILE=Miniconda3-latest-Linux-x86_64.sh
 
-MD5_EXP=87620e37caf523325ae67889656bc987
 # Path to which Miniconda will be installed
 PREFIX=${HOME}/miniconda
 
@@ -62,22 +61,17 @@ fi
 
 wget -c https://repo.continuum.io/miniconda/${FILE}
 
-MD5=`md5sum ${FILE} | awk '{ print $1 }'`
 
-if [ "$MD5" = "$MD5_EXP" ] ; then
-    echo "md5sum ${MD5_EXP} matches. Running installation"
-    bash ${FILE} -b -p ${PREFIX}
-    if [ $ENV = true ]; then
-        echo -e "\n#added by miniconda-installer installation script" >> ~/.bashrc
-        echo "export PATH=\"${PREFIX}"'/bin:$PATH"' >> ~/.bashrc
-    fi
-    rm ${FILE}
-    echo 'Script successfully finished. To start using conda command open a new shell.'
-else
-    echo 'md5sum does not match!\n md5sum ${MD5}\n md5sum expected ${MD5_EXP}'
+bash ${FILE} -b -p ${PREFIX}
+if [ $ENV = true ]; then
+    echo -e "\n#added by miniconda-installer installation script" >> ~/.bashrc
+    echo "export PATH=\"${PREFIX}"'/bin:$PATH"' >> ~/.bashrc
 fi
+rm ${FILE}
+echo 'Script successfully finished. To start using conda command open a new shell.'
 
 if [ $UPDATE = true ]; then
+    echo "Updating conda to the latest version"
     ${PREFIX}/bin/conda update -qy --all
 fi
 
